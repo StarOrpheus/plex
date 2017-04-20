@@ -34,9 +34,7 @@ $ ./build_magic.sh
 export MEDIA_LIB=/home/user/media
 export CONFIG_DIR=/var/lib/plex
 export DOCKER_IMAGE=kayrus/plex
-export PLEX_INT_PORT=32400
-export PLEX_EXT_PORT=32400
-docker run --name plex --rm -p ${PLEX_OUT_PORT}:${PLEX_INT_PORT} -v ${CONFIG_DIR}:/var/lib/plex -v ${MEDIA_LIB}:/media ${DOCKER_IMAGE}
+docker run --name plex --rm -td --net=host --pid=host -v ${CONFIG_DIR}:/var/lib/plex -v ${MEDIA_LIB}:/media ${DOCKER_IMAGE}
 ```
 
 ### Prevent login request for the non-docker bridge requests

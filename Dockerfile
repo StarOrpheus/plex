@@ -1,4 +1,4 @@
-FROM armv7/armhf-ubuntu:14.04.3
+FROM armv7/armhf-ubuntu:16.04
 MAINTAINER kayrus
 
 RUN DEBIAN_FRONTEND=noninteractive apt-get update \
@@ -16,8 +16,8 @@ RUN install -d -o plex -g plex /opt/plex/Application
 # Start container using plex user
 USER plex
 
-# Plex web interface default port
-EXPOSE 32400/tcp
+# Plex web interface default port; DLNA ports added
+EXPOSE 32400 32400/udp 32469 32469/udp 5353/udp 1900/udp
 WORKDIR /opt/plex/Application
 
 ENV PLEX_VERSION 1.2.7.2987-1bef33a
