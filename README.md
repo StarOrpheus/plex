@@ -33,7 +33,7 @@ $ ./build_magic.sh
 ```sh
 export MEDIA_LIB=/home/user/media
 export CONFIG_DIR=/var/lib/plex
-export DOCKER_IMAGE=kayrus/plex
+export DOCKER_IMAGE=starorpheus/armv7.plex
 docker run --name plex --rm -td --net=host --pid=host -v ${CONFIG_DIR}:/var/lib/plex -v ${MEDIA_LIB}:/media ${DOCKER_IMAGE}
 ```
 
